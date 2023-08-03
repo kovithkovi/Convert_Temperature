@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convert</title>
+    <link rel="stylesheet" href="convert.css">
+
+</head>
+
+<body>
+    <div class="navbar">
+        <li>Temperature</li>
+    </div>
+    <div class="main">
+        <p class="text">Enter the temperature below</p>
+        <input type="text" name="" id="temp" class="input">
+        <div class="btn">
+            <button onclick="fan()">Convert To Fahrenheit</button>
+            <button onclick="cel()">Convert To Celsius</button>
+        </div>
+        <div>
+            <p id="convert" class="conversion"></p>
+        </div>
+    </div>
+
+    <script>
+        function cel() {
+            const temp = document.getElementById('temp').value;
+            const conv = document.querySelector('.conversion');
+            let celsius = (temp - 32) * (5/9);
+            conv.style.border = '2px solid black';
+            document.getElementById('convert').innerHTML = temp + ' F = ' + celsius + ' °C';
+        }
+
+        function fan() {
+            const conv = document.querySelector('.conversion');
+            const temp = document.getElementById('temp').value;
+            let Fahrenheit = (temp * (9/5)) + 32;
+            conv.style.border = '2px solid black';
+            document.getElementById('convert').innerHTML = temp + ' °C = ' + Fahrenheit + ' F ';
+        }
+    </script>
+</body>
+
+</html>
